@@ -1,0 +1,109 @@
+/**
+ * LinkedIn Certificate Publisher - Admin Styles
+ */
+
+/* Settings Page Enhancements */
+.wrap h1 {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+}
+
+.wrap h1::before {
+	content: '';
+	display: inline-block;
+	width: 32px;
+	height: 32px;
+	background: #0a66c2;
+	mask: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>') center/contain no-repeat;
+	-webkit-mask: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>') center/contain no-repeat;
+}
+
+/* Form Table Enhancements */
+.form-table th {
+	font-weight: 600;
+}
+
+.form-table input.regular-text {
+	width: 400px;
+}
+
+.form-table textarea.large-text {
+	width: 100%;
+	max-width: 600px;
+}
+
+/* Code blocks for Redirect URI */
+code {
+	background: #f0f0f1;
+	padding: 4px 8px;
+	border-radius: 4px;
+	font-size: 13px;
+}
+
+/* Section descriptions */
+.form-table+p,
+h2+p {
+	color: #646970;
+	font-size: 14px;
+	margin-bottom: 20px;
+}
+
+/* Help text styling */
+.description {
+	color: #646970;
+	font-style: italic;
+}
+
+/* Test Connection Button */
+.button-secondary[target="_blank"]::after {
+	content: ' ↗';
+}
+
+/* Certificate Meta Box Styling */
+#lcpp_certificate_details .form-table {
+	margin-top: 0;
+}
+
+#lcpp_certificate_details .form-table th {
+	padding: 15px 10px 15px 0;
+	width: 150px;
+}
+
+#lcpp_certificate_details .form-table td {
+	padding: 15px 10px;
+}
+
+#lcpp_certificate_share {
+	background: #f9f9f9;
+}
+
+#lcpp_certificate_share .inside {
+	padding: 12px;
+}
+
+#lcpp_certificate_share input[type="text"] {
+	font-family: monospace;
+	font-size: 11px;
+	background: #fff;
+}
+
+/* Admin column styling */
+.column-issuer,
+.column-recipient,
+.column-issue_date {
+	width: 15%;
+}
+
+/* Success/Error notices */
+.notice.lcpp-notice {
+	border-left-color: #0a66c2;
+}
+
+.notice.lcpp-notice.success {
+	border-left-color: #057642;
+}
+
+.notice.lcpp-notice.error {
+	border-left-color: #cc1016;
+}

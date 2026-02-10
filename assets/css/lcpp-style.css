@@ -1,0 +1,587 @@
+/**
+ * LinkedIn Certificate Publisher - Frontend Styles
+ */
+
+/* CSS Custom Properties */
+:root {
+    --lcpp-primary: #0a66c2;
+    --lcpp-primary-hover: #004182;
+    --lcpp-success: #057642;
+    --lcpp-success-bg: #f0fdf4;
+    --lcpp-error: #cc1016;
+    --lcpp-error-bg: #fef2f2;
+    --lcpp-text: #191919;
+    --lcpp-text-muted: #666666;
+    --lcpp-border: #e0e0e0;
+    --lcpp-bg: #f3f2ef;
+    --lcpp-white: #ffffff;
+    --lcpp-radius: 8px;
+    --lcpp-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    --lcpp-transition: all 0.2s ease;
+}
+
+/* Share Button */
+.lcpp-share-wrapper {
+    display: inline-block;
+}
+
+.lcpp-share-button,
+.lcpp-intent-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    background: var(--lcpp-primary);
+    color: var(--lcpp-white);
+    border: none;
+    border-radius: var(--lcpp-radius);
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--lcpp-transition);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+.lcpp-share-button:hover,
+.lcpp-intent-link:hover {
+    background: var(--lcpp-primary-hover);
+    transform: translateY(-1px);
+    box-shadow: var(--lcpp-shadow);
+}
+
+.lcpp-share-button:active,
+.lcpp-intent-link:active {
+    transform: translateY(0);
+}
+
+.lcpp-share-button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.lcpp-linkedin-icon {
+    width: 18px;
+    height: 18px;
+}
+
+.lcpp-share-status {
+    margin-top: 10px;
+    padding: 10px 15px;
+    border-radius: var(--lcpp-radius);
+    font-size: 14px;
+}
+
+.lcpp-share-status.success {
+    background: var(--lcpp-success-bg);
+    color: var(--lcpp-success);
+    border: 1px solid var(--lcpp-success);
+}
+
+.lcpp-share-status.error {
+    background: var(--lcpp-error-bg);
+    color: var(--lcpp-error);
+    border: 1px solid var(--lcpp-error);
+}
+
+/* Certificate Page */
+.lcpp-certificate-page {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    padding: 40px 20px;
+}
+
+.lcpp-certificate-container {
+    max-width: 700px;
+    margin: 0 auto;
+    background: var(--lcpp-white);
+    border-radius: 16px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+}
+
+/* Certificate Header */
+.lcpp-certificate-header {
+    text-align: center;
+    padding: 40px 30px 30px;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    border-bottom: 1px solid var(--lcpp-border);
+}
+
+.lcpp-certificate-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, var(--lcpp-success) 0%, #059669 100%);
+    border-radius: 50%;
+    margin-bottom: 20px;
+    color: white;
+}
+
+.lcpp-badge-icon {
+    width: 50px;
+    height: 50px;
+}
+
+.lcpp-certificate-title {
+    margin: 0 0 10px;
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--lcpp-text);
+    line-height: 1.3;
+}
+
+.lcpp-certificate-issuer {
+    margin: 0;
+    font-size: 16px;
+    color: var(--lcpp-text-muted);
+}
+
+.lcpp-certificate-issuer strong {
+    color: var(--lcpp-text);
+}
+
+/* Certificate Image */
+.lcpp-certificate-image-wrap {
+    padding: 30px;
+    text-align: center;
+    background: var(--lcpp-bg);
+}
+
+.lcpp-certificate-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: var(--lcpp-radius);
+    box-shadow: var(--lcpp-shadow);
+}
+
+/* Certificate Details */
+.lcpp-certificate-details {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    padding: 30px;
+    border-bottom: 1px solid var(--lcpp-border);
+}
+
+.lcpp-detail-item {
+    text-align: center;
+}
+
+.lcpp-detail-item.lcpp-recipient {
+    grid-column: span 2;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--lcpp-border);
+}
+
+.lcpp-detail-label {
+    display: block;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--lcpp-text-muted);
+    margin-bottom: 5px;
+}
+
+.lcpp-detail-value {
+    display: block;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--lcpp-text);
+}
+
+.lcpp-credential-id {
+    font-family: monospace;
+    font-size: 14px;
+}
+
+/* Verification Section */
+.lcpp-verification {
+    padding: 25px 30px;
+    background: var(--lcpp-success-bg);
+    text-align: center;
+    border-bottom: 1px solid var(--lcpp-border);
+}
+
+.lcpp-verified-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--lcpp-success);
+}
+
+.lcpp-check-icon {
+    width: 24px;
+    height: 24px;
+}
+
+.lcpp-verification-text {
+    margin: 10px 0 0;
+    font-size: 14px;
+    color: var(--lcpp-text-muted);
+}
+
+/* Share Section */
+.lcpp-share-section {
+    padding: 30px;
+    text-align: center;
+    border-bottom: 1px solid var(--lcpp-border);
+}
+
+.lcpp-share-section h3 {
+    margin: 0 0 20px;
+    font-size: 18px;
+    color: var(--lcpp-text);
+}
+
+/* URL Section */
+.lcpp-url-section {
+    padding: 20px 30px 30px;
+    background: var(--lcpp-bg);
+}
+
+.lcpp-url-section label {
+    display: block;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--lcpp-text-muted);
+    margin-bottom: 10px;
+}
+
+.lcpp-url-copy {
+    display: flex;
+    gap: 10px;
+}
+
+.lcpp-url-copy input {
+    flex: 1;
+    padding: 10px 15px;
+    border: 1px solid var(--lcpp-border);
+    border-radius: var(--lcpp-radius);
+    font-size: 14px;
+    background: var(--lcpp-white);
+}
+
+.lcpp-copy-button {
+    padding: 10px 20px;
+    background: var(--lcpp-text);
+    color: var(--lcpp-white);
+    border: none;
+    border-radius: var(--lcpp-radius);
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--lcpp-transition);
+}
+
+.lcpp-copy-button:hover {
+    background: #333;
+}
+
+/* Certificates Grid */
+.lcpp-certificates-grid {
+    display: grid;
+    gap: 25px;
+}
+
+.lcpp-certificates-grid.lcpp-columns-2 {
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+}
+
+.lcpp-certificates-grid.lcpp-columns-3 {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+}
+
+.lcpp-certificate-card {
+    background: var(--lcpp-white);
+    border-radius: var(--lcpp-radius);
+    box-shadow: var(--lcpp-shadow);
+    overflow: hidden;
+    transition: var(--lcpp-transition);
+}
+
+.lcpp-certificate-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+.lcpp-certificate-card .lcpp-certificate-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.lcpp-certificate-content {
+    padding: 20px;
+}
+
+.lcpp-certificate-content .lcpp-certificate-title {
+    font-size: 18px;
+    margin: 0 0 10px;
+}
+
+.lcpp-certificate-content .lcpp-certificate-title a {
+    color: var(--lcpp-text);
+    text-decoration: none;
+}
+
+.lcpp-certificate-content .lcpp-certificate-title a:hover {
+    color: var(--lcpp-primary);
+}
+
+.lcpp-certificate-content .lcpp-certificate-issuer,
+.lcpp-certificate-content .lcpp-certificate-date {
+    margin: 0 0 5px;
+    font-size: 14px;
+    color: var(--lcpp-text-muted);
+}
+
+.lcpp-certificate-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.lcpp-view-button {
+    padding: 8px 16px;
+    background: var(--lcpp-bg);
+    color: var(--lcpp-text);
+    border-radius: var(--lcpp-radius);
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: var(--lcpp-transition);
+}
+
+.lcpp-view-button:hover {
+    background: var(--lcpp-border);
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .lcpp-certificate-page {
+        padding: 20px 10px;
+    }
+
+    .lcpp-certificate-header {
+        padding: 30px 20px 25px;
+    }
+
+    .lcpp-certificate-title {
+        font-size: 22px;
+    }
+
+    .lcpp-certificate-details {
+        grid-template-columns: 1fr;
+        padding: 20px;
+    }
+
+    .lcpp-detail-item.lcpp-recipient {
+        grid-column: span 1;
+    }
+
+    .lcpp-url-copy {
+        flex-direction: column;
+    }
+
+    .lcpp-certificates-grid.lcpp-columns-2,
+    .lcpp-certificates-grid.lcpp-columns-3 {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* =====================================================
+   ATTENDEE DASHBOARD STYLES
+   ===================================================== */
+
+.lcpp-dashboard {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 30px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+.lcpp-dashboard-message {
+    text-align: center;
+    padding: 60px 30px;
+    background: var(--lcpp-bg);
+    border-radius: var(--lcpp-radius);
+}
+
+.lcpp-dashboard-message p {
+    margin: 0 0 20px;
+    font-size: 16px;
+    color: var(--lcpp-text-muted);
+}
+
+.lcpp-no-events-icon {
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+
+.lcpp-login-button {
+    display: inline-block;
+    padding: 12px 30px;
+    background: var(--lcpp-primary);
+    color: var(--lcpp-white);
+    text-decoration: none;
+    border-radius: var(--lcpp-radius);
+    font-weight: 600;
+    transition: var(--lcpp-transition);
+}
+
+.lcpp-login-button:hover {
+    background: var(--lcpp-primary-hover);
+    color: var(--lcpp-white);
+}
+
+/* Dashboard Certificate View */
+.lcpp-dashboard-certificate {
+    background: var(--lcpp-white);
+    border-radius: 16px;
+    box-shadow: var(--lcpp-shadow);
+    overflow: hidden;
+}
+
+.lcpp-dashboard-header {
+    text-align: center;
+    padding: 30px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+}
+
+.lcpp-dashboard-header h2 {
+    margin: 0 0 10px;
+    font-size: 24px;
+}
+
+.lcpp-attendee-name {
+    margin: 0;
+    font-size: 18px;
+    opacity: 0.9;
+}
+
+.lcpp-certificate-preview {
+    padding: 30px;
+    background: var(--lcpp-bg);
+    text-align: center;
+}
+
+.lcpp-certificate-preview .lcpp-certificate-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: var(--lcpp-radius);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+}
+
+.lcpp-dashboard-actions {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    padding: 30px;
+    flex-wrap: wrap;
+}
+
+.lcpp-download-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 28px;
+    background: var(--lcpp-success);
+    color: var(--lcpp-white);
+    border: none;
+    border-radius: var(--lcpp-radius);
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--lcpp-transition);
+}
+
+.lcpp-download-button:hover {
+    background: #046c3b;
+    transform: translateY(-2px);
+    box-shadow: var(--lcpp-shadow);
+}
+
+.lcpp-download-button svg {
+    width: 20px;
+    height: 20px;
+}
+
+.lcpp-dashboard-share {
+    padding: 14px 28px;
+    font-size: 16px;
+    text-decoration: none;
+}
+
+.lcpp-dashboard-share .lcpp-linkedin-icon {
+    width: 20px;
+    height: 20px;
+}
+
+.lcpp-dashboard-profile {
+    padding: 14px 28px;
+    font-size: 16px;
+    background: #0073b1;
+    text-decoration: none;
+}
+
+.lcpp-dashboard-profile:hover {
+    background: #005f91;
+    transform: translateY(-2px);
+    box-shadow: var(--lcpp-shadow);
+}
+
+.lcpp-activity-log {
+    padding: 20px 30px 30px;
+    background: var(--lcpp-bg);
+    border-top: 1px solid var(--lcpp-border);
+}
+
+.lcpp-activity-log h4 {
+    margin: 0 0 15px;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--lcpp-text-muted);
+}
+
+.lcpp-activity-log ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.lcpp-activity-log li {
+    padding: 8px 0;
+    font-size: 14px;
+    color: var(--lcpp-success);
+    border-bottom: 1px solid var(--lcpp-border);
+}
+
+.lcpp-activity-log li:last-child {
+    border-bottom: none;
+}
+
+/* Dashboard Responsive */
+@media (max-width: 600px) {
+    .lcpp-dashboard {
+        padding: 15px;
+    }
+
+    .lcpp-dashboard-actions {
+        flex-direction: column;
+        padding: 20px;
+    }
+
+    .lcpp-download-button,
+    .lcpp-dashboard-share {
+        width: 100%;
+        justify-content: center;
+    }
+}
