@@ -58,8 +58,6 @@ class LinkedIn_Certificate_Publisher {
      */
     private function load_dependencies() {
         require_once LCPP_PLUGIN_DIR . 'includes/class-lcpp-admin.php';
-        require_once LCPP_PLUGIN_DIR . 'includes/class-lcpp-oauth.php';
-        require_once LCPP_PLUGIN_DIR . 'includes/class-lcpp-linkedin-api.php';
         require_once LCPP_PLUGIN_DIR . 'includes/class-lcpp-certificates.php';
         require_once LCPP_PLUGIN_DIR . 'includes/class-lcpp-shortcodes.php';
         require_once LCPP_PLUGIN_DIR . 'includes/class-lcpp-attendees.php';
@@ -100,8 +98,6 @@ class LinkedIn_Certificate_Publisher {
         
         // Set default options
         $default_options = array(
-            'client_id' => '',
-            'client_secret' => '',
             'webhook_api_key' => '', // Empty = no authentication required (set in settings to enable)
             'default_announcement' => "I'm excited to share that I've earned the {certificate_name} certification from {issuer}! 🎉\n\nView my credential: {credential_url}\n\n#certification #achievement #learning",
         );
@@ -127,8 +123,6 @@ class LinkedIn_Certificate_Publisher {
         
         // Initialize components (Certificates already initialized early in init_hooks)
         LCPP_Admin::get_instance();
-        LCPP_OAuth::get_instance();
-        LCPP_LinkedIn_API::get_instance();
         LCPP_Shortcodes::get_instance();
         LCPP_Attendees::get_instance();
         LCPP_Generator::get_instance();

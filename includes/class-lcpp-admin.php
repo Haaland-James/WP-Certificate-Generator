@@ -58,30 +58,6 @@ class LCPP_Admin {
     public function register_settings() {
         register_setting('lcpp_settings_group', 'lcpp_settings', array($this, 'sanitize_settings'));
         
-        // API Settings Section
-        add_settings_section(
-            'lcpp_api_section',
-            __('LinkedIn API Settings', 'linkedin-certificate-publisher'),
-            array($this, 'render_api_section'),
-            'lcpp-settings'
-        );
-        
-        add_settings_field(
-            'client_id',
-            __('Client ID', 'linkedin-certificate-publisher'),
-            array($this, 'render_client_id_field'),
-            'lcpp-settings',
-            'lcpp_api_section'
-        );
-        
-        add_settings_field(
-            'client_secret',
-            __('Client Secret', 'linkedin-certificate-publisher'),
-            array($this, 'render_client_secret_field'),
-            'lcpp-settings',
-            'lcpp_api_section'
-        );
-        
         // Announcement Settings Section
         add_settings_section(
             'lcpp_announcement_section',
@@ -193,8 +169,6 @@ class LCPP_Admin {
     public function sanitize_settings($input) {
         $sanitized = array();
         
-        $sanitized['client_id'] = sanitize_text_field($input['client_id'] ?? '');
-        $sanitized['client_secret'] = sanitize_text_field($input['client_secret'] ?? '');
         $sanitized['default_announcement'] = sanitize_textarea_field($input['default_announcement'] ?? '');
         $sanitized['webhook_api_key'] = sanitize_text_field($input['webhook_api_key'] ?? '');
         $sanitized['elementor_form_names'] = sanitize_text_field($input['elementor_form_names'] ?? '');
@@ -213,15 +187,7 @@ class LCPP_Admin {
     /**
      * Render API section description
      */
-    public function render_api_section() {
-        echo '<p>' . sprintf(
-            __('Enter your LinkedIn API credentials from the %sLinkedIn Developer Portal%s. Make sure to add "Share on LinkedIn" and "Sign In with LinkedIn using OpenID Connect" products to your app.', 'linkedin-certificate-publisher'),
-            '<a href="https://www.linkedin.com/developers/" target="_blank">',
-            '</a>'
-        ) . '</p>';
-        
-        echo '<p><strong>' . __('Redirect URI:', 'linkedin-certificate-publisher') . '</strong> <code>' . home_url('/lcpp-oauth-callback') . '</code></p>';
-    }
+
     
     /**
      * Render announcement section description
@@ -239,20 +205,7 @@ class LCPP_Admin {
     /**
      * Render Client ID field
      */
-    public function render_client_id_field() {
-        $options = get_option('lcpp_settings');
-        $value = $options['client_id'] ?? '';
-        echo '<input type="text" name="lcpp_settings[client_id]" value="' . esc_attr($value) . '" class="regular-text" />';
-    }
-    
-    /**
-     * Render Client Secret field
-     */
-    public function render_client_secret_field() {
-        $options = get_option('lcpp_settings');
-        $value = $options['client_secret'] ?? '';
-        echo '<input type="password" name="lcpp_settings[client_secret]" value="' . esc_attr($value) . '" class="regular-text" />';
-    }
+
     
     /**
      * Render Announcement field
@@ -524,13 +477,7 @@ class LCPP_Admin {
             
             <hr>
             
-            <h2><?php _e('Connection Test', 'linkedin-certificate-publisher'); ?></h2>
-            <p><?php _e('After saving your credentials, test the LinkedIn connection:', 'linkedin-certificate-publisher'); ?></p>
-            <p>
-                <a href="<?php echo esc_url(LCPP_OAuth::get_instance()->get_auth_url()); ?>" class="button button-secondary" target="_blank">
-                    <?php _e('Test LinkedIn Connection', 'linkedin-certificate-publisher'); ?>
-                </a>
-            </p>
+
         </div>
         <?php
     }
